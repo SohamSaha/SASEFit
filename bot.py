@@ -30,7 +30,7 @@ async def check_calendar():
 
 @check_calendar.before_loop
 async def before_check_calendar():
-    await bot.wait_until_ready()  # Wait until bot is ready.
+    await bot.wait_until_ready()  # Wait until bot is ready
 
 check_calendar.start()
 bot.run(SASEFIT_TOKEN)
