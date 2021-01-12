@@ -9,6 +9,7 @@ client = commands.Bot(command_prefix='$')
 @client.event
 async def on_ready():
   print ('Bot is ready')
+  checkTime()
 
 
 def checkTime():
@@ -21,7 +22,5 @@ def checkTime():
 
   if (current_time == '06:40:00'):
     print('it time')
-  else:
-    print('iit not time')
 
 client.run(os.environ['SASEFIT_TOKEN'])
