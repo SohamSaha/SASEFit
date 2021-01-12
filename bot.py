@@ -7,7 +7,7 @@ import threading
 client = commands.Bot(command_prefix='$')
 
 @client.event
-async def on_ready(ctx):
+async def on_ready():
   print ('Bot is ready')
 
 
@@ -19,7 +19,7 @@ def checkTime():
   current_time = now.strftime("%H:%M:%S")
   # print ("Current Time =", current_time)
 
-  if (current_time == '05:35:00'):
+  if (current_time == '06:40:00'):
     print('it time')
   else:
     print('iit not time')
