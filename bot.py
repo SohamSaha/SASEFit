@@ -28,6 +28,10 @@ async def check_calendar():
     for emoji in emojis:
       await message.add_reaction(emoji)
 
+@bot.command()
+async def test(ctx):
+  await ctx.send('hi')
+
 @check_calendar.before_loop
 async def before_check_calendar():
     await bot.wait_until_ready()  # Wait until bot is ready
