@@ -2,31 +2,32 @@ import discord
 import os
 from discord.ext import commands
 from datetime import datetime
-import threading
+import asyncio
 
-client = commands.Bot(command_prefix='$')
+bot = commands.Bot(command_prefix='$')
 
-@client.event
+@bot.event
 async def on_ready():
   print ('Bot is ready')
-  checkTime()
-
-
-########################################################################################################################################################################
-#   Helper functions that are not any commands/events but are utilized in other ways                                                                                   #
-########################################################################################################################################################################
-
-def checkTime():
-  #Start a thread to check the time every second
-  threading.Timer(1, checkTime).start()
-
-  #acquire the date and time and format the time in Hours: Minutes: Seconds
-  #Note: The time is given in GMT+0 timezone
-  now = datetime.now()
-  current_time = now.strftime("%H:%M:%S")
   
-  #Check if the time is correct and send a message appropriately
-  if (current_time == '06:50:00'):
-    print('it time')
+@bot.command()
+async def test(ctx):
+  emojis= ['\N{THUMBS UP SIGN}', '\N{THUMBS DOWN SIGN}']
+  message = await ctx.send("DID YOU ACHIEVE YOUR GOALS TODAY?")
+  
+  for emoji in emojis:
+    await message.add_reaction(emoji)
 
-client.run(os.environ['SASEFIT_TOKEN'])
+async def checkTime():
+  await bot.wait_until_ready()
+  while True:
+    now = datetime.now()
+    current_time = now.strftime("%H:%M:%S")
+    if (current_time == '04:00:00'):
+      print('it time')
+    else:
+      pass
+    await asyncio.sleep(1) 
+
+bot.loop.create_task(checkTime())
+bot.run(os.environ['SASEFIT_TOKEN'])
