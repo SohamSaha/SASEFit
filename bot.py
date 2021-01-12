@@ -16,7 +16,7 @@ async def on_ready():
 #   Helper functions that are not any commands/events but are utilized in other ways                                                                                   #
 ########################################################################################################################################################################
 
-def checkTime(ctx):
+def checkTime():
   #Start a thread to check the time every second
   threading.Timer(1, checkTime).start()
 
@@ -27,7 +27,6 @@ def checkTime(ctx):
   
   #Check if the time is correct and send a message appropriately
   if (current_time == '06:50:00'):
-    await ctx.send('it time')
     print('it time')
 
 client.run(os.environ['SASEFIT_TOKEN'])
