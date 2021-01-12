@@ -8,4 +8,8 @@ client = commands.Bot(command_prefix='$')
 async def on_ready():
   print ('Bot is ready')
 
+@client.command()
+async def ping(ctx):
+  await ctx.send('hi')
+
 client.run(os.environ['SASEFIT_TOKEN'])
