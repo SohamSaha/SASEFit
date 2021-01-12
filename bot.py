@@ -19,7 +19,7 @@ def checkTime():
   current_time = now.strftime("%H:%M:%S")
   # print ("Current Time =", current_time)
 
-  if (current_time == '05:30:00'):
+  if (current_time == '05:35:00'):
     print('it time')
   else:
     print('iit not time')
