@@ -11,5 +11,8 @@ async def on_ready():
 @client.command()
 async def ping(ctx):
   await ctx.send('hi')
+  await ctx.send('hola')
+
+
 
 client.run(os.environ['SASEFIT_TOKEN'])
