@@ -21,7 +21,7 @@ async def check_calendar():
   now = datetime.now()
   current_time = now.strftime("%H:%M:%S")
   #As the  Heroku system uses the GMT+0 timezone, a 8 hour offset is required
-  if (current_time == '05:03:00'):
+  if (current_time == '04:00:00'):
     message = await channel.send('Did you achieve your goals?')
     for emoji in emojis:
       await message.add_reaction(emoji)
@@ -29,13 +29,6 @@ async def check_calendar():
 @check_calendar.before_loop
 async def before_check_calendar():
     await bot.wait_until_ready()  # Wait until bot is ready
-
-@bot.command()
-async def test(ctx):
-  channel = bot.get_channel(714719811208347735)
-  message = await channel.send('test')
-  for emoji in emojis:
-      await message.add_reaction(emoji)
 
 check_calendar.start()
 bot.run(SASEFIT_TOKEN)
