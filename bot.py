@@ -7,7 +7,6 @@ from datetime import datetime
 #Set the command prefix for any future extensions and declare environment variables and other global variables
 bot = commands.Bot(command_prefix='$')
 emojis = ['\N{THUMBS UP SIGN}', '\N{THUMBS DOWN SIGN}']
-SASEFIT_CHANNEL = os.environ['SASEFIT_CHANNEL_ID']
 SASEFIT_TOKEN = os.environ['SASEFIT_TOKEN']
 
 @bot.event
@@ -16,12 +15,12 @@ async def on_ready():
 
 @loop(count=None, seconds=1)  #Will run forever every second
 async def check_calendar():
-  channel = bot.get_channel(SASEFIT_CHANNEL)
+  channel = bot.get_channel(797665110629548052)
 
   #Get the date and time from the Heroku system and format it appropriately
   now = datetime.now()
   current_time = now.strftime("%H:%M:%S")
-
+  print (current_time)
   #As the  Heroku system uses the GMT+0 timezone, a 8 hour offset is required
   if (current_time == '04:00:00'):
     message = await channel.send('Did you achieve your goals?')
