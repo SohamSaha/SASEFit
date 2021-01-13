@@ -15,13 +15,13 @@ async def on_ready():
 
 @loop(count=None, seconds=1)  #Will run forever every second
 async def check_calendar():
-  channel = bot.get_channel(714719811208347735)
+  channel = bot.get_channel(797665110629548052)
 
   #Get the date and time from the Heroku system and format it appropriately
   now = datetime.now()
   current_time = now.strftime("%H:%M:%S")
   #As the  Heroku system uses the GMT+0 timezone, a 8 hour offset is required
-  if (current_time == '05:00:00'):
+  if (current_time == '05:03:00'):
     message = await channel.send('Did you achieve your goals?')
     for emoji in emojis:
       await message.add_reaction(emoji)
