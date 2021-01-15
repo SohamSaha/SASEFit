@@ -16,7 +16,7 @@ async def on_ready():
   print ('Bot is ready')
   
 @loop(count=None, seconds=1)  #Will run forever every second
-async def check_calendar_check_in():
+async def check_calendar():
   channel = bot.get_channel(797665110629548052)
 
   #Get the date and time from the Heroku system and format it appropriately
@@ -32,9 +32,9 @@ async def check_calendar_check_in():
   elif (current_time == '17:00:00') and (current_day == 'Sunday'): #Send a new video every Sunday at 9 AM PST to help people out
     suggestion_message = await channel.send(helper.get_channel_videos(youtube_channel))
 
-@check_calendar_check_in.before_loop
-async def before_check_calendar_check_in():
+@check_calendar.before_loop
+async def before_check_calendar():
     await bot.wait_until_ready()  # Wait until bot is ready
 
-check_calendar_check_in.start()
+check_calendar.start()
 bot.run(SASEFIT_TOKEN)
