@@ -40,10 +40,10 @@ async def check_calendar():
 
   elif (current_time == '17:00:00') and (current_day == 'Sunday'): #Send a new video every Sunday at 9 AM PST to help people out
     suggestion_message = await channel.send(helper.get_channel_videos(youtube_channel))
-    with open('check_ins.json','r+') as json_file:
-      data = json.load(json_file)
-    total_days=len(data.keys())
-    message = await channel.send('out of ' + total_days + ' days this week, you achieved your goal for 3 of them')
+    # with open('check_ins.json','r+') as json_file:
+    #   data = json.load(json_file)
+    # total_days=len(data.keys())
+    # message = await channel.send('out of ' + total_days + ' days this week, you achieved your goal for 3 of them')
 
 @check_calendar.before_loop
 async def before_check_calendar():
