@@ -6,6 +6,9 @@ from datetime import datetime
 from discord.ext import commands
 from discord.ext.tasks import loop
 
+
+#This bot is deployed to the Jake Holly Heroku account
+
 #Set the command prefix for any future extensions and declare environment variables and other global variables
 bot = commands.Bot(command_prefix='$')
 emojis = ['\N{THUMBS UP SIGN}', '\N{THUMBS DOWN SIGN}']
